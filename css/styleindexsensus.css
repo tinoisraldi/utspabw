@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+/* navbar */
+
+nav {
+    display: flex;
+    background-color: #ed9898;
+    justify-content: space-around;
+    font-family: "Carter One", cursive;
+    font-size: 1.2em;
+    color: #fff;
+    height: 95px;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+nav .logo {
+    font-family: 'Bree Serif', sans-serif;
+    font-size: 1.4em;
+    letter-spacing: 1px;
+}
+
+nav .logo a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a :hover {
+    color: #ed9898;
+}
+
+
+/* humbuerger menu */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 50px;
+    height: 28px;
+    left: -10px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+
+/* humbuerger menu animation */
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0.0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0.100%;
+}
+
+.menu-toggle input:checked~span:nth-child(2) {
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked~span:nth-child(4) {
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    transform: scale(0);
+}
+
+
+/* Responsiv breakpoin */
+
+
+/* ukuran tablet */
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+
+/* ukuran mobile */
+
+@media screen and (max-width: 762px) {
+    .menu-toggle {
+        display: flex;
+    }
+    nav ul {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 70%;
+        height: 100vh;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        z-index: -1;
+        background-color: #ed9898;
+        transform: translateX(100%);
+        transition: all 1s;
+    }
+    nav ul.slide {
+        transform: translateX(0);
+    }
+}
+
+.opening {
+    z-index: -2;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(11, 85, 73);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+}
+
+.opening .container {
+    padding-top: 120px;
+}
+
+.opening h1 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 50px;
+    font-family: 'Lemon', cursive;
+}
+
+.opening h3 {
+    color: #fff;
+}
+
+.wrapper {
+    width: 50vw;
+    height: 80vh;
+    z-index: 0;
+    position: relative;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.wrapper .container {
+    padding-top: 150px;
+}
+
+.wrapper .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #ed9898;
+    text-transform: uppercase;
+    text-align: center;
+    z-index: -1;
+}
+
+.wrapper .form .inputfield {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper .form .inputfield label {
+    width: 200px;
+    font-weight: bold;
+    color: #ed9898;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.wrapper .form .inputfield .input,
+.wrapper .form .inputfield .textarea {
+    width: 100%;
+    outline: none;
+    border: 1px solid #d5dbd9;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.wrapper .form .inputfield .textarea {
+    width: 100%;
+    height: 125px;
+    resize: none;
+}
+
+.wrapper .form .inputfield .custom_select {
+    position: relative;
+    width: 100%;
+    height: 37px;
+}
+
+.wrapper .form .inputfield .custom_select:before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    border: 8px solid;
+    border-color: #d5dbd9 transparent transparent transparent;
+    pointer-events: none;
+}
+
+.wrapper .form .inputfield .custom_select select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 1px solid #d5dbd9;
+    border-radius: 3px;
+}
+
+.wrapper .form .inputfield .input:focus,
+.wrapper .form .inputfield .textarea:focus,
+.wrapper .form .inputfield .custom_select select:focus {
+    border: 1px solid #009970;
+}
+
+.wrapper .form .inputfield p {
+    font-size: 14px;
+    color: #ed9898;
+}
+
+.wrapper .form .inputfield .check {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.wrapper .form .inputfield .check input[type="checkbox"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.wrapper .form .inputfield .check .checkmark {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #fec107;
+    display: block;
+    position: relative;
+}
+
+.wrapper .form .inputfield .check .checkmark:before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    width: 5px;
+    height: 2px;
+    border: 2px solid;
+    border-color: transparent transparent #fff #fff;
+    transform: rotate(-45deg);
+    display: none;
+}
+
+.wrapper .form .inputfield .check input[type="checkbox"]:checked~.checkmark {
+    background: #009970;
+}
+
+.wrapper .form .inputfield .check input[type="checkbox"]:checked~.checkmark:before {
+    display: block;
+}
+
+.wrapper .form .inputfield .btn {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 0px;
+    background: #009970;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+}
+
+@media (max-width:420px) {
+    .wrapper .form .inputfield {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .wrapper .form .inputfield label {
+        margin-bottom: 5px;
+    }
+    .wrapper .form .inputfield.terms {
+        flex-direction: row;
+    }
+}
+
+.data {
+    color: #065f47;
+    width: auto;
+    height: 80vh;
+    z-index: 0;
+    position: relative;
+    margin: 0 50px auto;
+}
+
+.data .container {
+    padding-top: 140px;
+    overflow: auto;
+}
+
+.data table {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding-left: 20px;
+    padding: 10px;
+}
+
+.data button {
+    font-size: 13px;
+}
